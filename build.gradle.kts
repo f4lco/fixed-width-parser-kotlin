@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     id("org.jlleitschuh.gradle.ktlint")
+    id("maven-publish")
 }
 
 val fixedWidthParserVersion: String by project
@@ -24,4 +25,19 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.github.f4lco"
+            artifactId = "fixed-width-parser-kotlin"
+            version = "0.1.0-SNAPSHOT"
+            from(components["java"])
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
 }

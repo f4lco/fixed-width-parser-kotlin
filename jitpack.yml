@@ -1,0 +1,5 @@
+jdk:
+  - openjdk11
+install:
+  - java -version
+  - ./gradlew --no-daemon --warning-mode all --stacktrace publishToMavenLocal
