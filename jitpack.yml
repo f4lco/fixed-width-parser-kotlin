@@ -1,5 +1,5 @@
 jdk:
-  - openjdk11
+  - openjdk8
 install:
   - java -version
   - ./gradlew --no-daemon --warning-mode all --stacktrace publishToMavenLocal
